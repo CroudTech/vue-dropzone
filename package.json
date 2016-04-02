@@ -25,7 +25,7 @@
     "url": "https://github.com/CroudSupport/vue-dropzone/issues"
   },
   "homepage": "https://github.com/CroudSupport/vue-dropzone#readme",
-    "dependencies": {
+  "dependencies": {
     "dropzone": "^4.2.0"
   }
-},
+}
