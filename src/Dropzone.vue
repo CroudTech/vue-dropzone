@@ -14,6 +14,12 @@
 import Dropzone from 'dropzone';
 export default {
 
+        data() {
+            return {
+                isLoading: this.uploading,
+            }
+        },
+
     props : {
         start: null,
         autostart: {
@@ -45,7 +51,7 @@ export default {
             default : false
         },
         uploading: false,
-        headers: []
+        headers: {},
     },
     data() {
         return {
@@ -65,7 +71,6 @@ export default {
     },
     methods: {
         build() {
-
             function setupDragon(uploader) {
                 /* A little closure for handling proper
                    drag and drop hover behavior */
@@ -90,7 +95,6 @@ export default {
                 uploader.on('dragenter', dragon.enter);
                 uploader.on('dragleave', dragon.leave);
             }
-
 
             if (this.initialised) return
 
@@ -124,11 +128,12 @@ export default {
             dz.on("sending", (file) => {
                 this.$emit('file-sending', file);
                 this.$emit('uploading', true);
-                this.uploading = true
+                this.isLoading = true
             });
 
             dz.on("addedfile", (file) => {
                 this.$emit('file-added', file);
+                console.log('file added')
             });
 
             dz.on("success", (file, response) => {
@@ -136,7 +141,7 @@ export default {
                     response = response.data
 
                 this.$emit('file-upload-success', response);
-                this.uploading = false
+                this.isLoading = false
                 if (!this.files) this.files = [];
 
                 if (typeof response === 'string') {
@@ -147,7 +152,7 @@ export default {
             });
 
             dz.on("error", (file, errorMessage, xhr) => {
-                this.uploading = false
+                this.isLoading = false
                 this.$emit('uploading', false);
                 this.$emit('file-upload-error', {
                     file: file,
@@ -162,10 +167,21 @@ export default {
             });
         }
     },
-    ready() {
+
+    mounted() {
         if (this.autostart)
             this.build()
-    }
+    },
+
+    watch: {
+            isLoading() {
+                this.$emit('set-loading', this.isLoading)
+            },
+
+            uploading() {
+                this.isLoading = this.uploading
+            },
+        },
 }
 
 </script>
