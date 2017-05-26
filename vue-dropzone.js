@@ -1,8 +1,7 @@
 var Dropzone = require('./src/Dropzone.vue');
 
 module.exports = {
-    install: function (Vue, options) {
+    install: function (Vue) {
         Vue.component('vue-dropzone', Dropzone);
     },
 }
-	
