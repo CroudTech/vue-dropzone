@@ -1,3 +1,4 @@
+
 <template>
     <div>
       <div ref="dropzone">
@@ -78,7 +79,6 @@ export default {
 
                   return {
                     enter: function (event) {
-                      event.preventDefault();
                       dragCounter++;
                       elm.classList.add('dz-drag-hover')
                     },
@@ -132,7 +132,6 @@ export default {
 
             dz.on("addedfile", (file) => {
                 this.$emit('file-added', file);
-                console.log('file added')
             });
 
             dz.on("success", (file, response) => {
@@ -168,14 +167,16 @@ export default {
     },
 
     mounted() {
-        window.addEventListener("dragover",function(e){
+        window.addEventListener("dragover",((e) => {
         e = e || event;
         e.preventDefault();
-        },false);
-        window.addEventListener("drop",function(e){
+        }),false);
+
+        window.addEventListener("drop",((e) => {
         e = e || event;
         e.preventDefault();
-        },false);
+        }),false);
+
         if (this.autostart)
             this.build()
     },
