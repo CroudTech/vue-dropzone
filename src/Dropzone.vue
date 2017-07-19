@@ -1,4 +1,3 @@
-
 <template>
     <div>
       <div ref="dropzone">
@@ -169,6 +168,14 @@ export default {
     },
 
     mounted() {
+        window.addEventListener("dragover",function(e){
+        e = e || event;
+        e.preventDefault();
+        },false);
+        window.addEventListener("drop",function(e){
+        e = e || event;
+        e.preventDefault();
+        },false);
         if (this.autostart)
             this.build()
     },
