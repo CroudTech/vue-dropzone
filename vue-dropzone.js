@@ -1,4 +1,4 @@
-var Dropzone = require('./src/Dropzone.vue');
+import Dropzone from './src/Dropzone.vue';
 
 module.exports = {
     install: function (Vue) {
