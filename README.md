@@ -18,7 +18,8 @@ yarn add https://github.com/CroudSupport/vue-dropzone.git
 
 Install the plugin
 ```js
-Vue.use(require('vue-dropzone'))
+import VueDropzone from 'vue-dropzone'
+Vue.use(VueDropzone)
 ```
 
 ## Licence
