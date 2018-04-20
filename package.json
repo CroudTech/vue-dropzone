@@ -1,5 +1,5 @@
 {
-  "name": "vue-dropzone",
+  "name": "@croudtech/vue-dropzone",
   "version": "1.0.2",
   "description": "Dropzonejs Vuejs component",
   "main": "vue-dropzone.js",
