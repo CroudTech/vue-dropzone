@@ -7,20 +7,20 @@ Find out more about Dropzone JS here: http://www.dropzonejs.com/
 If you need the Vue 1 version of this lib you can use the vue1 branch or 0.0.1 tag
 
 ## Installation
-You can use NPM to install this package or tag 0.0.1
+You can use NPM to install this package
 ```bash
-npm install --save https://github.com/CroudSupport/vue-dropzone.git
+npm install --save @croudtech/vue-dropzone
 ```
 or Yarn 
 ```bash
-yarn add https://github.com/CroudSupport/vue-dropzone.git
+yarn add @croudtech/vue-dropzone
 ```
 
 Install the plugin
 ```js
-import VueDropzone from 'vue-dropzone'
+import VueDropzone from '@croudtech/vue-dropzone'
 Vue.use(VueDropzone)
 ```
 
 ## Licence
-https://github.com/CroudSupport/vue-dropzone/blob/master/LICENSE
+https://github.com/CroudTech/vue-dropzone/blob/master/LICENSE
