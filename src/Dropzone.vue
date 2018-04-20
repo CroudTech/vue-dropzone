@@ -154,7 +154,7 @@ export default {
                 this.$emit('uploading', false);
                 this.$emit('file-upload-error', {
                     file: file,
-                    response: response,
+                    response: errorMessage,
                     xhr: xhr
                 });
             });
